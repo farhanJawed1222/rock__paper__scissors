@@ -14,12 +14,19 @@ function getComputerChoice() {
 
 // function to take human choice
 function getHumanChoice() {
-    let choice = prompt("Enter choice (rock/paper/scissors)").toLowerCase();
-    if (choice == "rock" || choice == "paper" || choice == "scissors") {
-        return choice;
-    }
-    else {
-        return "Invalid choice";
+
+    //this loop will keep executing until the choice is between rock/ paper/scissors
+    while(true){
+
+        // Enter your correct choice
+        let choice = prompt("Enter choice (rock/paper/scissors)").toLowerCase();
+        if(choice == "rock" || choice == "paper" || choice == "scissors"){
+            return choice;
+        }
+        else{
+            // Ask for valid choice
+             console.log("Invalid choice! Try again.");
+        }
     }
 }
 
@@ -32,12 +39,8 @@ function playGame() {
     // function to give the winner for each round
     function playRound(computerChoice, humanChoice) {
 
-        // If human has input invalid choice
-        if (humanChoice === "Invalid choice") {
-            return "Invalid";
-        }
-        // tie case
-        else if (humanChoice === computerChoice) {
+        // check for tie case
+        if (humanChoice === computerChoice) {
             console.log("It's a tie!");
         }
 
