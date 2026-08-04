@@ -23,42 +23,50 @@ function getHumanChoice() {
     }
 }
 
-function playRound() {
-    // store computer choice that will return from getComputerChoice()
-    const computer_selection = getComputerChoice().toLowerCase();
-
-    // store human choice that will return from getHumanChoice()
-    const human_selection = getHumanChoice();
-
+// function to give the winner for each round
+function playRound(computerChoice, humanChoice) {
+   
     // If human has input invalid choice
-    if (human_selection === "Invalid choice") {
-        return "Invalid choice";
+    if (humanChoice === "Invalid choice") {
+        return "Invalid";
     }
     // tie case
-    else if (human_selection === computer_selection) {
-        // no change
+    else if (humanChoice === computerChoice) {
+        console.log("It's a tie!");
     }
 
     // check for all the combination in which human will win
-    else if (human_selection === "rock" && computer_selection === "scissors" || human_selection === "paper" && computer_selection === "rock" || human_selection === "scissors" && computer_selection === "paper") {
+    else if (humanChoice === "rock" && computerChoice === "scissors" || humanChoice === "paper" && computerChoice === "rock" || humanChoice === "scissors" && computerChoice === "paper") {
         Human_score += 1;
+        console.log("you won " + humanChoice + " beats " + computerChoice);
     }
 
     //check for all the combination in which computer will win
     else {
         Computer_score += 1;
+        console.log("you lost " + computerChoice + " beats " + humanChoice);
     }
 }
 
+ 
 // function to run this game for n number of time and decide winner
 function playGame() {
    
     // call playRound function 5 time
     for (let i = 0; i < 5; i++) {
-        playRound();
+
+        // store computer choice that will return from getComputerChoice()
+    const computer_selection = getComputerChoice().toLowerCase();
+
+    // store human choice that will return from getHumanChoice()
+    const human_selection = getHumanChoice();
+
+    // call playRound function
+        playRound(computer_selection, human_selection);
         console.log("Human: " + Human_score + " Computer: " + Computer_score);
     }
 
+    // give the final result
     if (Human_score == Computer_score) {
         console.log("Its a tie");
     }
