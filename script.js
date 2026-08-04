@@ -26,22 +26,22 @@ function getHumanChoice() {
 function playRound() {
     // store computer choice that will return from getComputerChoice()
     const computer_selection = getComputerChoice().toLowerCase();
-    
+
     // store human choice that will return from getHumanChoice()
     const human_selection = getHumanChoice();
 
     // If human has input invalid choice
-    if (human_selection === "Invalid choice"){
+    if (human_selection === "Invalid choice") {
         return "Invalid choice";
     }
     // tie case
-   else if (human_selection === computer_selection) {
+    else if (human_selection === computer_selection) {
         // no change
     }
 
     // check for all the combination in which human will win
     else if (human_selection === "rock" && computer_selection === "scissors" || human_selection === "paper" && computer_selection === "rock" || human_selection === "scissors" && computer_selection === "paper") {
-        Human_score += 1; 
+        Human_score += 1;
     }
 
     //check for all the combination in which computer will win
@@ -50,3 +50,27 @@ function playRound() {
     }
 }
 
+// function to run this game for n number of time and decide winner
+function playGame() {
+   
+    // call playRound function 5 time
+    for (let i = 0; i < 5; i++) {
+        playRound();
+        console.log("Human: " + Human_score + " Computer: " + Computer_score);
+    }
+
+    if (Human_score == Computer_score) {
+        console.log("Its a tie");
+    }
+    else if (Human_score > Computer_score) {
+        console.log("You won the game by " + Human_score + " vs " + Computer_score);
+    }
+    else {
+        console.log("YOU lost the game by " + Human_score + " vs " + Computer_score);
+    }
+}
+
+ // store points for Human and computer
+let Human_score = 0, Computer_score = 0;
+
+playGame();
