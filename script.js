@@ -11,4 +11,15 @@ function getComputerChoice(){
         return "Scissors";
     }
 }
-console.log(getComputerChoice());
+
+// function to take human choice
+function getHumanChoice(){
+    let choice = prompt("Enter your choice").toLowerCase();
+    if (choice == "rock" || choice == "paper" || choice == "scissors")
+    {
+        return choice;
+    }
+    else{
+        return "Invalid choice";
+    }
+}
