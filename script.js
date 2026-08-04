@@ -23,45 +23,46 @@ function getHumanChoice() {
     }
 }
 
-// function to give the winner for each round
-function playRound(computerChoice, humanChoice) {
-   
-    // If human has input invalid choice
-    if (humanChoice === "Invalid choice") {
-        return "Invalid";
-    }
-    // tie case
-    else if (humanChoice === computerChoice) {
-        console.log("It's a tie!");
-    }
-
-    // check for all the combination in which human will win
-    else if (humanChoice === "rock" && computerChoice === "scissors" || humanChoice === "paper" && computerChoice === "rock" || humanChoice === "scissors" && computerChoice === "paper") {
-        Human_score += 1;
-        console.log("you won " + humanChoice + " beats " + computerChoice);
-    }
-
-    //check for all the combination in which computer will win
-    else {
-        Computer_score += 1;
-        console.log("you lost " + computerChoice + " beats " + humanChoice);
-    }
-}
-
- 
 // function to run this game for n number of time and decide winner
 function playGame() {
-   
+
+    // store points for Human and computer
+    let Human_score = 0, Computer_score = 0;
+
+    // function to give the winner for each round
+    function playRound(computerChoice, humanChoice) {
+
+        // If human has input invalid choice
+        if (humanChoice === "Invalid choice") {
+            return "Invalid";
+        }
+        // tie case
+        else if (humanChoice === computerChoice) {
+            console.log("It's a tie!");
+        }
+
+        // check for all the combination in which human will win
+        else if (humanChoice === "rock" && computerChoice === "scissors" || humanChoice === "paper" && computerChoice === "rock" || humanChoice === "scissors" && computerChoice === "paper") {
+            Human_score += 1;
+            console.log("you won " + humanChoice + " beats " + computerChoice);
+        }
+
+        //check for all the combination in which computer will win
+        else {
+            Computer_score += 1;
+            console.log("you lost " + computerChoice + " beats " + humanChoice);
+        }
+    }
     // call playRound function 5 time
     for (let i = 0; i < 5; i++) {
 
         // store computer choice that will return from getComputerChoice()
-    const computer_selection = getComputerChoice().toLowerCase();
+        const computer_selection = getComputerChoice().toLowerCase();
 
-    // store human choice that will return from getHumanChoice()
-    const human_selection = getHumanChoice();
+        // store human choice that will return from getHumanChoice()
+        const human_selection = getHumanChoice();
 
-    // call playRound function
+        // call playRound function
         playRound(computer_selection, human_selection);
         console.log("Human: " + Human_score + " Computer: " + Computer_score);
     }
@@ -77,8 +78,5 @@ function playGame() {
         console.log("YOU lost the game by " + Human_score + " vs " + Computer_score);
     }
 }
-
- // store points for Human and computer
-let Human_score = 0, Computer_score = 0;
 
 playGame();
