@@ -85,13 +85,13 @@ function playRound(computerChoice, humanChoice) {
         humanChoice === "Paper" && computerChoice === "Rock" ||
         humanChoice === "Scissors" && computerChoice === "Paper") {
         humanScore += 1;
-        display_message.textContent = `you won ${humanChoice} beats ${computerChoice}`;
+        display_message.textContent = `You won ${humanChoice} beats ${computerChoice}`;
 
     }
     // computer winning condition
     else {
         computerScore += 1;
-        display_message.textContent = `you lost ${computerChoice} beats ${humanChoice}`;
+        display_message.textContent = `You lost ${computerChoice} beats ${humanChoice}`;
     }
 
     display_score.textContent = `Human: ${humanScore} and Computer: ${computerScore}`;
