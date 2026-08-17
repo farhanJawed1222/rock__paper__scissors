@@ -35,9 +35,7 @@ function getComputerChoice() {
     }
 }
 
-// creating a div to store winner message and score
-const message_container = document.createElement("div");
-message_container.classList.add("message__container");
+const message_container = document.querySelector(".message__container");
 
 // creating a p element to display message
 const display_message = document.createElement("p");
@@ -78,10 +76,40 @@ function playRound(computerChoice, humanChoice) {
 
 
     if (computerScore === 5 || humanScore === 5) {
-        if (humanScore > computerScore) display_message.textContent = "You are the winner";
-        else display_message.textContent = "You have lost the game ";
+        if (humanScore > computerScore) {
+            display_message.textContent = "You are the winner";
+            // appending the reset button to paragraph
+            display_message.appendChild(reset_span);
+        }
+        else {
+            display_message.textContent = "You have lost the game ";
+            // appending the reset button to paragraph
+            display_message.appendChild(reset_span);
+        }
         buttons.removeEventListener("click", handleClick);
     }
 }
 
-buttons.appendChild(message_container);
+//creating a reset button
+
+// create a span and button and append it to display_message(p)
+const reset_span = document.createElement("span");
+reset_span.classList.add("reset__container");
+
+const reset_btn = document.createElement("button");
+reset_btn.classList.add("reset__button");
+reset_btn.textContent = "Restart";
+reset_span.appendChild(reset_btn);
+
+
+// function to restart game
+function restart() {
+    humanScore = 0;
+    computerScore = 0;
+    display_message.textContent = "";
+    display_score.textContent = `Human: ${humanScore} and Computer: ${computerScore}`;
+    buttons.addEventListener("click", handleClick);
+}
+
+// attach restart event listener to reset_btn
+reset_btn.addEventListener("click", restart);
