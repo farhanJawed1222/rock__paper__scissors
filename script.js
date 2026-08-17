@@ -5,7 +5,11 @@ const buttons = document.querySelector(".rps__container");
 function handleClick(e) {
     e.preventDefault();
     // storing human choice
-    let humanChoice = e.target.closest("button").textContent;
+    const btn = e.target.closest("button");
+    // no button was clicked — do nothing, no error
+    if (btn === null) return;
+
+    let humanChoice = btn.textContent;
     // storing computer choice
     let computerChoice = getComputerChoice();
 
