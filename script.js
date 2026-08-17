@@ -1,9 +1,10 @@
 // get the reference of all three buttons
-const rock_btn = document.querySelector(".rock__btn");
-const paper_btn = document.querySelector(".paper__btn");
-const scissors_btn = document.querySelector(".scissors__btn");
+const buttons = document.querySelector(".rps__container");
 
+// add event listener to button parent div
+buttons.addEventListener("click", e=>{
 
+});
 function getComputerChoice() {
     // gives random number between 0, 1 and 2
     let random_number = Math.floor(Math.random() * 3);
