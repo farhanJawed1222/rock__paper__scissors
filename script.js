@@ -1,3 +1,9 @@
+// get the reference of all three buttons
+const rock_btn = document.querySelector(".rock__btn");
+const paper_btn = document.querySelector(".paper__btn");
+const scissors_btn = document.querySelector(".scissors__btn");
+
+
 function getComputerChoice() {
     // gives random number between 0, 1 and 2
     let random_number = Math.floor(Math.random() * 3);
@@ -57,7 +63,7 @@ function playGame() {
         }
     }
     // call playRound function 5 time
-    for (let i = 0; i < 5; i++) {
+    // for (let i = 0; i < 5; i++) {
 
         // store computer choice that will return from getComputerChoice()
         const computer_selection = getComputerChoice().toLowerCase();
@@ -68,7 +74,7 @@ function playGame() {
         // call playRound function
         playRound(computer_selection, human_selection);
         console.log("Human: " + Human_score + " Computer: " + Computer_score);
-    }
+    // }
 
     // give the final result
     if (Human_score == Computer_score) {
