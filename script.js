@@ -47,6 +47,28 @@ const display_score = document.createElement("p");
 display_score.classList.add("display__score");
 message_container.appendChild(display_score);
 
+
+//creating a reset button
+
+const reset_container = document.querySelector(".reset__container");
+
+const reset_btn = document.createElement("button");
+reset_btn.classList.add("reset__button");
+reset_btn.textContent = "Restart";
+
+
+// function to restart game
+function restart() {
+    humanScore = 0;
+    computerScore = 0;
+    display_message.textContent = "";
+    display_score.textContent = `Human: ${humanScore} and Computer: ${computerScore}`;
+    buttons.addEventListener("click", handleClick);
+    reset_btn.remove();
+}
+
+// attach restart event listener to reset_btn
+reset_btn.addEventListener("click", restart);
 // scores for both human and computer
 let humanScore = 0, computerScore = 0;
 
@@ -74,42 +96,17 @@ function playRound(computerChoice, humanChoice) {
 
     display_score.textContent = `Human: ${humanScore} and Computer: ${computerScore}`;
 
-
+    // check for max 5 round win
     if (computerScore === 5 || humanScore === 5) {
         if (humanScore > computerScore) {
             display_message.textContent = "You are the winner";
-            // appending the reset button to paragraph
-            display_message.appendChild(reset_span);
+
         }
         else {
             display_message.textContent = "You have lost the game ";
-            // appending the reset button to paragraph
-            display_message.appendChild(reset_span);
         }
+        reset_container.appendChild(reset_btn);
         buttons.removeEventListener("click", handleClick);
     }
 }
 
-//creating a reset button
-
-// create a span and button and append it to display_message(p)
-const reset_span = document.createElement("span");
-reset_span.classList.add("reset__container");
-
-const reset_btn = document.createElement("button");
-reset_btn.classList.add("reset__button");
-reset_btn.textContent = "Restart";
-reset_span.appendChild(reset_btn);
-
-
-// function to restart game
-function restart() {
-    humanScore = 0;
-    computerScore = 0;
-    display_message.textContent = "";
-    display_score.textContent = `Human: ${humanScore} and Computer: ${computerScore}`;
-    buttons.addEventListener("click", handleClick);
-}
-
-// attach restart event listener to reset_btn
-reset_btn.addEventListener("click", restart);
