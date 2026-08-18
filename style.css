@@ -17,10 +17,10 @@ body{
 
 .main__box{
     max-width:750px;
-    height:550px;
+    min-height:550px;
     background-color: #f4ecaa;
-    padding:20px 60px;
-    margin:20px;
+    padding:12px;
+    margin:12px;
 }
 
 .rps__heading{
@@ -38,6 +38,8 @@ body{
     justify-content: space-around;
     padding:12px;
     margin-bottom:22px;
+    flex-wrap: wrap;
+    gap:16px;
 }
 
 .rps__container{
@@ -49,8 +51,10 @@ body{
 
 .rps__buttons{
     display:flex;
-    gap:40px;
-    margin-bottom:30px;
+    gap:22px;
+    margin-bottom:26px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .btn{
