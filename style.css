@@ -1,4 +1,4 @@
-@import url('https://googleapis.com');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 *{
     padding: 0;
     margin: 0;
@@ -63,11 +63,16 @@ body{
     cursor: pointer;
 }
 
+.btn:active,
+.reset__button:active{
+    transform: scale(0.95);
+}
+
 /* adding style to message displayed and score shown */
 .display__winner,
 .display__score{
     font-size:18px;
-    font-weight: bolder;
+    /* font-weight: bold; */
     text-align: center;
     padding:12px;
 
@@ -84,5 +89,6 @@ body{
     background-color: pink;
     border: none;
     border-radius:5px;
+    cursor: pointer;
 }
 
