@@ -1,5 +1,5 @@
 // get the reference of all three buttons
-const buttons = document.querySelector(".rps__container");
+const buttons = document.querySelector(".rps__buttons");
 
 //name the handler function so both calls can reference it.
 function handleClick(e) {
