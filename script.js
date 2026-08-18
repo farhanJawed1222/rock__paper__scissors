@@ -1,42 +1,38 @@
+// --------------------------DOM references / element creation -------------------------
+
 // get the reference of all three buttons
 const buttons = document.querySelector(".rps__buttons");
-
-//name the handler function so both calls can reference it.
-function handleClick(e) {
-    e.preventDefault();
-    // storing human choice
-    const btn = e.target.closest("button");
-    // no button was clicked — do nothing, no error
-    if (btn === null) return;
-
-    let humanChoice = btn.textContent;
-    // storing computer choice
-    let computerChoice = getComputerChoice();
-
-    playRound(computerChoice, humanChoice);
-
-}
-
-// adding an start button to start the game
-
 const start_container = document.querySelector(".start__container");
+const message_container = document.querySelector(".message__container");
+const reset_container = document.querySelector(".reset__container");
+
+// creating start button
 const start_btn = document.createElement("button");
 start_btn.classList.add("start__btn");
 start_btn.textContent = "START";
 start_container.appendChild(start_btn);
 
-//add listener to start button
-start_btn.addEventListener("click", clickStart);
+// creating a p element to display message
+const display_message = document.createElement("p");
+display_message.classList.add("display__winner");
+message_container.appendChild(display_message);
 
-// click start function
-function clickStart(){
-// add event listener to button parent div
-buttons.addEventListener("click", handleClick);
-display_message.textContent = "Choose option";
-display_score.textContent = `Human: ${humanScore} and Computer: ${computerScore}`;
-start_btn.remove();
-}
+// creating a p element to display score
+const display_score = document.createElement("p");
+display_score.classList.add("display__score");
+message_container.appendChild(display_score);
 
+
+//creating a reset button
+const reset_btn = document.createElement("button");
+reset_btn.classList.add("reset__button");
+reset_btn.textContent = "Restart";
+
+//-------------------------------------State -----------------------------------------------
+// scores for both human and computer
+let humanScore = 0, computerScore = 0;
+
+//----------------------------------GAME LOGIC------------------------------------------------
 // get computer choice
 function getComputerChoice() {
     // gives random number between 0, 1 and 2
@@ -51,43 +47,6 @@ function getComputerChoice() {
         return "Scissors";
     }
 }
-
-const message_container = document.querySelector(".message__container");
-
-// creating a p element to display message
-const display_message = document.createElement("p");
-display_message.classList.add("display__winner");
-message_container.appendChild(display_message);
-
-// creating a p element to display score
-const display_score = document.createElement("p");
-display_score.classList.add("display__score");
-message_container.appendChild(display_score);
-
-
-//creating a reset button
-
-const reset_container = document.querySelector(".reset__container");
-
-const reset_btn = document.createElement("button");
-reset_btn.classList.add("reset__button");
-reset_btn.textContent = "Restart";
-
-
-// function to restart game
-function restart() {
-    humanScore = 0;
-    computerScore = 0;
-    display_message.textContent = "";
-    display_score.textContent = `Human: ${humanScore} and Computer: ${computerScore}`;
-    buttons.addEventListener("click", handleClick);
-    reset_btn.remove();
-}
-
-// attach restart event listener to reset_btn
-reset_btn.addEventListener("click", restart);
-// scores for both human and computer
-let humanScore = 0, computerScore = 0;
 
 // function gives the winner for each round
 function playRound(computerChoice, humanChoice) {
@@ -126,4 +85,48 @@ function playRound(computerChoice, humanChoice) {
         buttons.removeEventListener("click", handleClick);
     }
 }
+
+//name the handler function so both calls can reference it.
+function handleClick(e) {
+    e.preventDefault();
+    // storing human choice
+    const btn = e.target.closest("button");
+    // no button was clicked — do nothing, no error
+    if (btn === null) return;
+
+    let humanChoice = btn.textContent;
+    // storing computer choice
+    let computerChoice = getComputerChoice();
+
+    playRound(computerChoice, humanChoice);
+
+}
+
+// click start function
+function clickStart(){
+// add event listener to button parent div
+buttons.addEventListener("click", handleClick);
+display_message.textContent = "Choose option";
+display_score.textContent = `Human: ${humanScore} and Computer: ${computerScore}`;
+start_btn.remove();
+}
+
+// function to restart game
+function restart() {
+    humanScore = 0;
+    computerScore = 0;
+    display_message.textContent = "";
+    display_score.textContent = `Human: ${humanScore} and Computer: ${computerScore}`;
+    buttons.addEventListener("click", handleClick);
+    reset_btn.remove();
+}
+
+// ---------------------------------- ADD EventListner------------------------------------------
+//add listener to start button
+start_btn.addEventListener("click", clickStart);
+
+// attach restart event listener to reset_btn
+reset_btn.addEventListener("click", restart);
+
+
 
