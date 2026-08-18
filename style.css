@@ -1,5 +1,48 @@
+@import url('https://googleapis.com');
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
+
+body{
+      background-color:#ffb300e8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+}
+
+.main__box{
+    width:750px;
+    height:550px;
+    background-color: #f4ecaa;
+    padding:20px 60px;
+    margin:20px;
+}
+
+.rps__heading{
+    text-align: center;
+    padding: 7px;
+    margin: 7px;
+}
+
+.rps__rules{
+    list-style:none;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding:12px;
+    margin-bottom:22px;
+}
+
+
+
+.rps__container{
+    display: flex;
+    justify-content: center;
+}
+
