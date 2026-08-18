@@ -65,7 +65,8 @@ body{
 }
 
 .btn:active,
-.reset__button:active{
+.reset__button:active,
+.start__btn:active{
     transform: scale(0.95);
 }
 
@@ -80,7 +81,8 @@ body{
 }
 
 /* styling reset button */
-.reset__button{
+.reset__button,
+.start__btn{
     display: flex;
     justify-content: center;
     width:100px;
