@@ -17,8 +17,25 @@ function handleClick(e) {
 
 }
 
+// adding an start button to start the game
+
+const start_container = document.querySelector(".start__container");
+const start_btn = document.createElement("button");
+start_btn.classList.add("start__btn");
+start_btn.textContent = "START";
+start_container.appendChild(start_btn);
+
+//add listener to start button
+start_btn.addEventListener("click", clickStart);
+
+// click start function
+function clickStart(){
 // add event listener to button parent div
 buttons.addEventListener("click", handleClick);
+display_message.textContent = "Choose option";
+display_score.textContent = `Human: ${humanScore} and Computer: ${computerScore}`;
+start_btn.remove();
+}
 
 // get computer choice
 function getComputerChoice() {
