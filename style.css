@@ -15,7 +15,7 @@ body{
 }
 
 .main__box{
-    width:750px;
+    max-width:750px;
     height:550px;
     background-color: #f4ecaa;
     padding:20px 60px;
@@ -61,5 +61,15 @@ body{
     font-weight: bolder;
     font-size:16px;
     cursor: pointer;
+}
+
+/* adding style to message displayed and score shown */
+.display__winner,
+.display__score{
+    font-size:18px;
+    font-weight: bolder;
+    text-align: center;
+    padding:22px;
+
 }
 
