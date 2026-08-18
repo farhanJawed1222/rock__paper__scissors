@@ -49,13 +49,13 @@ body{
 .rps__buttons{
     display:flex;
     gap:40px;
-    margin-bottom:50px;
+    margin-bottom:30px;
 }
 
 .btn{
     width:100px;
     height:100px;
-    border: 2px solid black;
+    border: none;
     border-radius: 50%;
     background-color: #FFCA28;
     font-weight: bolder;
@@ -69,7 +69,20 @@ body{
     font-size:18px;
     font-weight: bolder;
     text-align: center;
-    padding:22px;
+    padding:12px;
 
+}
+
+/* styling reset button */
+.reset__button{
+    display: flex;
+    justify-content: center;
+    width:100px;
+    padding:10px 30px;
+    font-weight: bold;
+    color:rgb(244, 7, 46);
+    background-color: pink;
+    border: none;
+    border-radius:5px;
 }
 
